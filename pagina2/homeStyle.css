@@ -1,0 +1,162 @@
+body{
+    border: 0;
+    margin: 0;
+    color: #ffffff;
+    background-color: #000000;
+    overflow-x: hidden;
+}
+header{
+    width: 100vw;
+    height: 30vh;
+    border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.tittleHeaderHome{
+    width: 40%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    margin: 0;
+    font-size: 90pt;
+    text-shadow: -6px 8px 4px #ffffff29; 
+}
+h1 span{
+    margin: 0 20px;
+}
+h1 .spanX{
+    color: blue;
+    text-shadow: 0 0 5px #000000,
+         0 0 10px #fff,
+         0 0 20px #4000ff,
+         0 0 30px #001aff,
+         0 0 40px #3300ff,
+         0 0 50px #0077ff;
+         animation: animaTittle 7s infinite alternate linear;
+}
+h1 .spanO{
+    color: green;
+    text-shadow: 0 0 5px #000000,
+         0 0 10px #fff,
+         0 0 20px #1ee542,
+         0 0 30px #3dec1e,
+         0 0 40px #00ff44,
+         0 0 50px #4cf539;
+    animation: animaTittle2 7s infinite alternate linear;
+}
+h1 .spanY{
+    color: orangered;
+    text-shadow: 0 0 5px #000000,
+         0 0 10px #fff,
+         0 0 20px #ff4500,
+         0 0 30px #f14b0e,
+         0 0 40px #e24006,
+         0 0 50px #fa591f;
+    animation: animaTittle 7s infinite alternate linear;
+}
+.subtittleHeaderHome{
+    width: fit-content;
+    text-shadow: -2px -2px 4px #ffffff29;
+}
+.subtittleHeaderHome h2{
+    margin: 8px 0 0 0;
+    font-size: 15pt;
+    color: gold;
+    text-shadow: -2px 2px 4px #bc141429;
+}
+main{
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: start;
+}
+.gamesDevelopedToMe{
+    width: 92%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    overflow-x: auto;
+    padding:3%;
+}
+.gamesDevelopedToMe div{
+    min-width: 15vw;
+    height: 90%;
+    border-right: 1px solid #ff0000c2;
+    border-top: 1px solid #ff0000c2;
+    box-shadow: -6px 4px 12px #ff0000c2;
+    border-radius: 4px;
+    margin: 0 20px 0 10px;
+}
+.letsGoGame{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imageGame{
+    width: 60%;
+    height: 60%;
+    border-radius: 6px;
+}
+.tituloGame{
+    color: rgb(223, 24, 24);
+    margin: 10px 0 2px;
+    font-size: 12pt;
+    width: 80%;
+}
+.subtitulogame{
+    color: white;
+    margin: 0;
+    width: 80%;
+    font-size: 10pt;
+}
+
+@keyframes animaTittle {
+    0% {
+        margin-top: 0px;
+    }
+    25% {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+    50% {
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+    100% {
+        margin-top: 0;
+        margin-right: 10px;
+    }
+}
+@keyframes animaTittle2 {
+    0% {
+        margin-top: 0px;
+    }
+    25% {
+        margin-top: -40px;
+        margin-left: -20px;
+    }
+    50% {
+        margin-bottom: -20px;
+        margin-right: -10px;
+    }
+    100% {
+        margin-top: 0;
+        margin-right: -10px;
+    }
+}

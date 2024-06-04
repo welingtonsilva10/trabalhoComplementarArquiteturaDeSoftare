@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/logoXOY.svg" type="image/x-icon">
+    <title>Jogo da forca</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        main{
+            width: 100%;
+            height: 100%;
+        }
+        .escolhaPalavra{
+            width: 100%;
+            height: 100%;
+            background-image: url("assets/images/cenaForca.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .textoEscolhido{
+            width: 36%;
+            padding: 0 2%;
+            height: 10%;
+            font-size: 16pt;
+            background-color: rgba(255, 255, 255, 0.693);
+            border: none;
+            outline: none;
+        }
+        .botaoContinuar{
+            width: 10%;
+            height: 10%;
+            background-color: green;
+            color: white;
+            font-size: 18pt;
+        }
+        .telaJogo{
+            width: 100%;
+            height: 100%;
+            background-image: url("assets/images/cenaForca.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+        .caixaDica{
+            width: 50%;
+            height: 30%;
+            border-radius: 40px;
+            background-color: white;
+            position: fixed;
+            top: 6%;
+            right: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 14pt;
+        }
+        .letrasPalavra{
+            width: 70%;
+            height: 20%;
+            border: 1px solid black;
+            position: fixed;
+            bottom: 10%;
+            left: 20%;
+            display: flex;
+            font-size: 22pt;
+        }
+        h3{
+            min-width: 12px;
+            width: fit-content;
+            height: 4vh;
+            margin: 2px;
+        }
+        .textoLetra{
+            width: 50%;
+            height: 10%;
+            position: absolute;
+            bottom: 0;
+            left: 8%;
+        }
+        .verificarLetra{
+            width: fit-content;
+            height: 12%;
+            position: absolute;
+            bottom: 0;
+            right: 20%;
+        }
+        .dicaParaJogo{
+            width: 60%;
+            height: 14%;
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            font-size: 16pt;
+            background-color: rgba(255, 255, 255, 0.786);
+            outline: none;
+            border: none;
+        }
+        .letsGoGame{
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .imageGame{
+            width: 60%;
+            height: 60%;
+            border-radius: 6px;
+        }
+        .tituloGame{
+            color: white;
+            margin: 5px 0 2px;
+            font-size: 13pt;
+            width: 100%;
+        }
+        .subtitulogame{
+            color: white;
+            margin: 0;
+            width: 100%;
+            font-size: 11pt;
+        }
+        </style>
+</head>
+<body>
+    <main>
+        <section class="escolhaPalavra" id="telaInicial">
+            <input class="dicaParaJogo" id="dicaJogo" type="text" placeholder="Digite a dica inicial para a sua palavra">
+            <input class="textoEscolhido" id="inputPalavra" type="text" placeholder="Digite uma palavra">
+            <button class="botaoContinuar" onclick="iniciarJogo()">Iniciar</button>
+        </section>
+        <section class="telaJogo" id="telaJogo">
+            <div class="caixaDica">
+                <h2 class="" id="dicaAparecendo"></h2>
+                <input class="textoLetra" id="inputLetra" type="text" placeholder="Digite uma letra">
+                <button class="verificarLetra" onclick="verificarLetra()">Verivicar</button>
+            </div>
+            <div class="letrasPalavra" id="criarLetras">
+                
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    let telaInicial = document.getElementById("telaInicial");
+    let telaJogo = document.getElementById("telaJogo");
+    let dicaJogo = document.getElementById("dicaJogo");
+    let dicaAparecendo = document.getElementById("dicaAparecendo");
+    let palavra = '';
+    let letrasArray = [];
+
+    function iniciarJogo() {
+        telaInicial.style.display = "none";
+        telaJogo.style.display = "flex";
+
+        dicaAparecendo.textContent = dicaJogo.value;
+
+        palavra = document.getElementById('inputPalavra').value.toUpperCase();
+        
+        letrasArray = Array.from(palavra);
+        
+        const criarLetras = document.getElementById('criarLetras');
+        
+        criarLetras.innerHTML = '';
+
+        letrasArray.forEach(char => {
+            const letraElemento = document.createElement('h3');
+            if (char === ' ') {
+                letraElemento.textContent = ' ';
+            } else {
+                letraElemento.textContent = '_';
+            }
+            criarLetras.appendChild(letraElemento);
+        });
+    }
+
+    function verificarLetra() {
+        
+        const letra = document.getElementById('inputLetra').value.toUpperCase();
+        
+        const criarLetras = document.getElementById('criarLetras').children;
+        
+        letrasArray.forEach((char, index) => {
+            if (char === letra) {
+                criarLetras[index].textContent = letra;
+            }
+        });
+        
+        document.getElementById('inputLetra').value = '';
+    }
+
+</script>
+</html>
